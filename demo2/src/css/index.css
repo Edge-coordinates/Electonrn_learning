@@ -1,0 +1,10 @@
+.for_file_drag {
+  height: 600px;
+}
+
+.mdui-drawer {
+  z-index: 5000;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+}
