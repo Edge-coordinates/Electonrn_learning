@@ -1,6 +1,6 @@
 {
-  "name": "demo2",
-  "productName": "demo2",
+  "name": "lite_reader",
+  "productName": "Lite_reader",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "边缘坐标",
+    "name": "Edge-coordinates",
     "email": "68896486+Edge-coordinates@users.noreply.github.com"
   },
   "license": "MIT",

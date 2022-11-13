@@ -1,12 +1,6 @@
-var m$ = mdui.$;
-var inst = new mdui.Drawer("#drawer", {overlay:true});
+// var tab = new mdui.Tab('#example4-tab');
 
-m$("#toggle").on("click", function () {
-  inst.toggle();
-});
+// $('#example-4').on('open.mdui.dialog', function () {
+//   tab.handleUpdate();
+// });
 
-{
-  /* <li class="mdui-list-item">
-<div class="mdui-list-item-content">fdlsak;jf;asjlfklfa;salfkafdslsfadjlfadsjlfjlk</div>
-</li> */
-}
