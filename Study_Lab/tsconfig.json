@@ -1,0 +1,21 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.web.json",
+    "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+    "exclude": ["node_modules", "**/*.spec.ts", "src/tools/*"],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "allowJs": true, //编译时允许有js
+        "allowSyntheticDefaultImports": true, //允许引入没有默认导出的模块
+        "isolatedModules": false,
+        // "preserveValueImports":false,
+    },
+
+    "references": [
+        {
+            "path": "./tsconfig.config.json"
+        }
+    ]
+}
