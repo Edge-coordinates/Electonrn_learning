@@ -1,31 +1,82 @@
 {
-  "name": "study-lab",
-  "version": "0.0.0",
-  "private": true,
-  "main": "dist-electron/main.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit"
-  },
-  "dependencies": {
-    "@element-plus/icons-vue": "^2.0.10",
-    "element-plus": "^2.2.28",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.12",
-    "@vicons/ionicons5": "^0.12.0",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/tsconfig": "^0.1.3",
-    "electron": "^22.0.3",
-    "npm-run-all": "^4.1.5",
-    "typescript": "~4.7.4",
-    "vite": "^4.0.0",
-    "vite-plugin-electron": "^0.11.1",
-    "vue-tsc": "^1.0.12"
-  }
+    "name": "study-lab",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./dist-electron/main.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "run-p type-check build-only &&  electron-builder",
+        "preview": "vite preview",
+        "build-only": "vite build",
+        "type-check": "vue-tsc --noEmit"
+    },
+    "dependencies": {
+        "@element-plus/icons-vue": "^2.0.10",
+        "@teamhive/pdf-viewer": "^4.2.0",
+        "@vicons/ionicons5": "^0.12.0",
+        "cheerio": "^1.0.0-rc.12",
+        "element-plus": "^2.2.28",
+        "naive-ui": "^2.34.3",
+        "superagent": "^8.0.9",
+        "vfonts": "^0.0.3",
+        "vue": "^3.2.45",
+        "vue-pdf": "^4.3.0",
+        "vue-router": "^4.1.6"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.18",
+        "@vitejs/plugin-vue": "^4.0.0",
+        "@vue/tsconfig": "^0.1.3",
+        "electron": "^22.0.3",
+        "electron-builder": "^23.6.0",
+        "npm-run-all": "^4.1.5",
+        "typescript": "~4.7.4",
+        "vite": "^4.0.0",
+        "vite-plugin-electron": "^0.11.1",
+        "vue-tsc": "^1.0.12"
+    },
+    "build": {
+        "appId": "com.electron.desktop",
+        "productName": "StudyLab",
+        "copyright": "Copyright © 2023 Edge-coordinates",
+        "directories": {
+            "output": "release/"
+        },
+        "files": [
+            "dist",
+            "dist-electron"
+        ],
+        "mac": {
+            "artifactName": "${productName}_${version}.${ext}",
+            "target": [
+                "dmg"
+            ]
+        },
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "artifactName": "${productName}_${version}.${ext}"
+        },
+        "nsis": {
+            "oneClick": false,
+            "perMachine": false,
+            "allowToChangeInstallationDirectory": true,
+            "deleteAppDataOnUninstall": false
+        },
+        "publish": [
+            {
+                "provider": "generic",
+                "url": "http://127.0.0.1:8080"
+            }
+        ],
+        "releaseInfo": {
+            "releaseNotes": "版本更新的具体内容"
+        }
+    }
 }

@@ -21,11 +21,14 @@ const url = process.env['VITE_DEV_SERVER_URL']
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: join(process.env.PUBLIC, 'logo.svg'),
+    width:1000,
+    height:1200,
+    icon: join(process.env.PUBLIC as string, 'logo.svg'),
     webPreferences: {
       contextIsolation: false,
       nodeIntegration: true,
       preload,
+      webSecurity: false, //是否禁用同源策略(上线时删除此配置)
     },
   })
 
@@ -37,7 +40,7 @@ function createWindow() {
   if (url) {
     win.loadURL(url)
   } else {
-    win.loadFile(join(process.env.DIST, 'index.html'))
+    win.loadFile(join(process.env.DIST as string, 'index.html'))
   }
 }
 

@@ -1,59 +1,94 @@
 <template>
-    <el-scrollbar>
-        <el-button style="width:100%;" @click="OnClick(0)"><el-icon><MoreFilled/></el-icon></el-button>
-        <el-menu :default-openeds="['1']" default-activate="1-1">
-            <el-menu-item index="1-1">Option 1</el-menu-item>
-            <el-sub-menu index="2">
-                <template #title>
-                    <el-icon><icon-menu /></el-icon>Navigator Two
-                </template>
-                <el-menu-item-group>
-                    <template #title>Group 1</template>
-                    <el-menu-item index="2-1">Option 1</el-menu-item>
-                    <el-menu-item index="2-2">Option 2</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="Group 2">
-                    <el-menu-item index="2-3">Option 3</el-menu-item>
-                </el-menu-item-group>
-                <el-sub-menu index="2-4">
-                    <template #title>Option 4</template>
-                    <el-menu-item index="2-4-1">Option 4-1</el-menu-item>
-                </el-sub-menu>
-            </el-sub-menu>
-            <el-sub-menu index="3">
-                <template #title>
-                    <el-icon><setting /></el-icon>Navigator Three
-                </template>
-                <el-menu-item-group>
-                    <template #title>Group 1</template>
-                    <el-menu-item index="3-1">Option 1</el-menu-item>
-                    <el-menu-item index="3-2">Option 2</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="Group 2">
-                    <el-menu-item index="3-3">Option 3</el-menu-item>
-                </el-menu-item-group>
-                <el-sub-menu index="3-4">
-                    <template #title>Option 4</template>
-                    <el-menu-item index="3-4-1">Option 4-1</el-menu-item>
-                </el-sub-menu>
-            </el-sub-menu>
-        </el-menu>
-    </el-scrollbar>
+    <n-layout-sider
+        collapse-mode="width"
+        :collapsed-width="64"
+        :width="240"
+        :collapsed="collapsed"
+        show-trigger="bar"
+        @collapse="collapsed = true"
+        @expand="collapsed = false"
+    >
+        <n-menu
+            :collapsed="collapsed"
+            :collapsed-width="64"
+            :collapsed-icon-size="22"
+            :options="menuOptions"
+        />
+    </n-layout-sider>
 </template>
 
-<script setup lang="ts">
-    import { Menu as IconMenu, Message, Setting, MoreFilled} from '@element-plus/icons-vue'
-    let isCollapse:boolean = true
-</script>
-
 <script lang="ts">
-    export default {
-        methods: {
-            OnClick(index: number) {
-                if (index == 0){
-                    isCollapse = !isCollapse
+import { h, ref, defineComponent, Component } from 'vue'
+import { NIcon } from 'naive-ui'
+import type { MenuOption } from 'naive-ui'
+import { Home, Apps, Browsers } from '@vicons/ionicons5'
+import { RouterLink, RouterView } from 'vue-router'
+
+function renderIcon(icon: Component) {
+    return () => h(NIcon, null, { default: () => h(icon) })
+}
+
+const menuOptions: MenuOption[] = [
+    {
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        name: 'home_main',
+                    },
+                },
+                { default: () => '主页' }
+            ),
+        key: 'home-main',
+        icon: renderIcon(Home),
+    },
+    {
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        name: 'home_browser',
+                    },
+                },
+                { default: () => '浏览' }
+            ),
+        key: 'browser',
+        icon: renderIcon(Browsers),
+    },
+    {
+        label: () =>
+            h(
+                RouterLink,
+                {
+                    to: {
+                        name: 'home_apps',
+                    },
+                },
+                { default: () => '工具' }
+            ),
+        key: 'tools0',
+        icon: renderIcon(Apps),
+    },
+]
+
+export default defineComponent({
+    setup() {
+        return {
+            collapsed: ref(true),
+            menuOptions,
+            renderMenuLabel(option: MenuOption) {
+                if ('href' in option) {
+                    return h(
+                        'a',
+                        { href: option.href, target: '_blank' },
+                        option.label as string
+                    )
                 }
-            }
+                return option.label
+            },
         }
-    }
+    },
+})
 </script>
