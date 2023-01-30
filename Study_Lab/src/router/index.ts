@@ -10,7 +10,7 @@ import Library_reader from '@/views/Library_reader.vue'
 import Library_about from '@/components/Library/About.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
