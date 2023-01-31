@@ -1,9 +1,3 @@
-/*
- * @Author: lx000
- * @Date: 2021-11-04 10:47:51
- * @LastEditTime: 2021-11-12 09:01:33
- * @Description: electron,ts配置文件
- */
 {
   // ? 继承tsconfig.json配置 同名配置项会被本配置文件覆盖
   "extends": "./tsconfig.json",

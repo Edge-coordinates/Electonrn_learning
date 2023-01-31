@@ -1,12 +1,9 @@
-/*
- * @Author: lx000
- * @Date: 2021-11-05 10:21:41
- * @LastEditTime: 2021-12-03 09:07:46
- * @Description: createWindow
- */
 import { BrowserWindow } from "electron";
 // import { setContextMenu } from "./setContextMenu";
 import * as path from "path";
+// import * as remote_main from '@electron/remote' // Electron 自 14 之后 移除了 remote，妈的老子调了好久啊。   这个方案不行，已经弃用。
+
+
 /**
  * packages.json,script中通过cross-env NODE_ENV=production设置的环境变量
  * 'production'|'development'
@@ -27,8 +24,9 @@ function createWindow() {
     // resizable: false, // 禁止手动修改窗口尺寸
     webPreferences: {
       // 加载脚本
-      // contextIsolation: false,
       nodeIntegration: true,
+      contextIsolation: false,
+      nodeIntegrationInWorker: true,
       webSecurity: false,
       preload: path.join(__dirname, "..", "preload")
     }
@@ -38,6 +36,7 @@ function createWindow() {
   Window.once("ready-to-show", () => {
     Window.show(); // 显示窗口
   });
+
 
   /**设置全局右键菜单 */
   // setContextMenu(Window);

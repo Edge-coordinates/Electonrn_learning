@@ -1,8 +1,8 @@
 {
   "name": "vue3-vite-electron-typescript-template",
   "version": "1.0.3",
-  "description": "vue3,vite,typescript,electron beautiful template",
-  "author": "lx000",
+  "description": "StudyLab is a lab help you study.",
+  "author": "Edge-coordinates",
   "main": "output/build/main.js",
   "license": "MIT",
   "scripts": {
@@ -21,6 +21,8 @@
     "@vicons/ionicons5": "^0.12.0",
     "@vueuse/core": "8.3.1",
     "cheerio": "^1.0.0-rc.12",
+    "electron-localstorage": "^1.0.5",
+    "lowdb": "1.0.0",
     "naive-ui": "^2.34.3",
     "normalize.css": "^8.0.1",
     "superagent": "^8.0.9",

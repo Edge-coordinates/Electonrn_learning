@@ -1,11 +1,6 @@
-/*
- * @Author: lx000
- * @Date: 2021-11-04 10:49:02
- * @LastEditTime: 2021-12-02 09:25:47
- * @Description: electron 主进程
- */
 import { app, BrowserWindow, Menu } from "electron";
 import { createWindow } from "./utils/createWindow";
+import { initializationData } from "./utils/initializationData"
 import { onAppMenu, createAppMenu } from "./utils/menu";
 import { onNavbar } from "./utils/navbar";
 import { onContextMenu } from "./utils/contextMenu";
@@ -16,6 +11,7 @@ import { onContextMenu } from "./utils/contextMenu";
 app.on("ready", () => {
   // 设置app菜单
   // Menu.setApplicationMenu(createAppMenu());
+  initializationData()
   createWindow(); // 创建窗口
   // 通常在 macOS 上，当点击 dock 中的应用程序图标时，如果没有其他打开的窗口，那么程序会重新创建一个窗口。
   app.on("activate", () => BrowserWindow.getAllWindows().length === 0 && createWindow());

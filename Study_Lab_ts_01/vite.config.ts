@@ -1,9 +1,3 @@
-/*
- * @Author: lx000
- * @Date: 2021-11-04 10:11:30
- * @LastEditTime: 2021-11-19 00:44:15
- * @Description:  vite 配置文件
- */
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";

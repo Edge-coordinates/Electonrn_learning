@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "useDefineForClassFields": true,
+    // "module": "node16",
+		// "moduleResolution": "node16",
     "module": "esnext",
     "moduleResolution": "node", // * 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
     "strict": false,
@@ -9,25 +11,12 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "~/*": [
-        "types/*"
-      ]
+      "@/*": ["src/*"],
+      "~/*": ["types/*"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/**/*.d.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts", "electron/**/*.ts"]
 }
