@@ -1,48 +1,27 @@
-// The built directory structure
-//
-// ├─┬ dist
-// │ ├─┬ electron
-// │ │ ├── main.js
-// │ │ └── preload.js
-// │ ├── index.html
-// │ ├── ...other-static-files-from-public
-// │
-process.env.DIST = join(__dirname, '../dist')
-process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST, '../public')
+/*
+ * @Author: lx000
+ * @Date: 2021-11-04 10:49:02
+ * @LastEditTime: 2021-12-02 09:25:47
+ * @Description: electron 主进程
+ */
+import { app, BrowserWindow, Menu } from "electron";
+import { createWindow } from "./utils/createWindow";
+import { onAppMenu, createAppMenu } from "./utils/menu";
+import { onNavbar } from "./utils/navbar";
+import { onContextMenu } from "./utils/contextMenu";
 
-import { join } from 'path'
-import { app, BrowserWindow } from 'electron'
+// onNavbar();
+// onAppMenu();
+// onContextMenu();
+app.on("ready", () => {
+  // 设置app菜单
+  // Menu.setApplicationMenu(createAppMenu());
+  createWindow(); // 创建窗口
+  // 通常在 macOS 上，当点击 dock 中的应用程序图标时，如果没有其他打开的窗口，那么程序会重新创建一个窗口。
+  app.on("activate", () => BrowserWindow.getAllWindows().length === 0 && createWindow());
+});
 
-let win: BrowserWindow | null
-// Here, you can also use other preload
-const preload = join(__dirname, './preload.js')
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
-const url = process.env['VITE_DEV_SERVER_URL']
-
-function createWindow() {
-  win = new BrowserWindow({
-    icon: join(process.env.PUBLIC, 'logo.svg'),
-    webPreferences: {
-      contextIsolation: false,
-      nodeIntegration: true,
-      preload,
-    },
-  })
-
-  // Test active push message to Renderer-process.
-  win.webContents.on('did-finish-load', () => {
-    win?.webContents.send('main-process-message', (new Date).toLocaleString())
-  })
-
-  if (url) {
-    win.loadURL(url)
-  } else {
-    win.loadFile(join(process.env.DIST, 'index.html'))
-  }
-}
-
-app.on('window-all-closed', () => {
-  win = null
-})
-
-app.whenReady().then(createWindow)
+// 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 macOS窗口全部关闭时,dock中程序不会退出
+app.on("window-all-closed", () => {
+  process.platform !== "darwin" && app.quit();
+});
