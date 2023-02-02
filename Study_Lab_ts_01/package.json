@@ -1,5 +1,5 @@
 {
-  "name": "vue3-vite-electron-typescript-template",
+  "name": "study-lab",
   "version": "1.0.3",
   "description": "StudyLab is a lab help you study.",
   "author": "Edge-coordinates",
@@ -22,6 +22,8 @@
     "@vueuse/core": "8.3.1",
     "cheerio": "^1.0.0-rc.12",
     "electron-localstorage": "^1.0.5",
+    "jschardet": "^3.0.0",
+    "localforage": "^1.10.0",
     "lowdb": "1.0.0",
     "naive-ui": "^2.34.3",
     "normalize.css": "^8.0.1",
@@ -46,13 +48,14 @@
     "typescript": "4.6.4",
     "unplugin-vue-components": "0.19.3",
     "vite": "2.9.5",
+    "vite-plugin-node-polyfills": "^0.7.0",
     "vue-tsc": "0.34.10",
     "wait-on": "6.0.1"
   },
   "build": {
-    "appId": "com.lx000-website.electron-vue3-tpm",
-    "productName": "后台管理",
-    "copyright": "Copyright © 2021 <your-name>",
+    "appId": "com.edgecoordinates.no",
+    "productName": "StudyLab",
+    "copyright": "Copyright © 2023 边缘坐标",
     "directories": {
       "output": "output/app"
     },

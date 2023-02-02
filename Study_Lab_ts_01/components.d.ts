@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     ContentMenu: typeof import('./src/components/contentMenu.vue')['default']
     EnglishNews: typeof import('./src/components/EnglishNews.vue')['default']
+    EPUBV: typeof import('./src/components/Library/EPUBV.vue')['default']
     HomeNavigator: typeof import('./src/components/HomeNavigator.vue')['default']
     HomePageHeader: typeof import('./src/components/HomePageHeader.vue')['default']
     LibraryNavigator: typeof import('./src/components/Library/LibraryNavigator.vue')['default']

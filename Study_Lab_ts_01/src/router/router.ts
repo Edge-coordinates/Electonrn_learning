@@ -10,6 +10,8 @@ import Library_main from "@/view/Library_main.vue";
 import Library_reader from "@/view/Library_reader.vue";
 import Library_about from "@/components/Library/About.vue";
 
+import rss_main from "@/view/rss_main.vue"
+
 import AboutView from "@/view/AboutView.vue";
 
 const routes: RouteRecordRaw[] = [
@@ -20,7 +22,9 @@ const routes: RouteRecordRaw[] = [
     children: [
       { name: "home_main", path: "", component: Home_main },
       { name: "home_browser", path: "browser", component: Home_Browser },
-      { name: "home_apps", path: "apps", component: Home_Apps }
+      { name: "home_apps", path: "apps", component: Home_Apps },
+      { name: "rss_main", path: "apps", component: rss_main },
+      { name: "about", path:'about', component: AboutView}
     ]
   },
   {
@@ -33,14 +37,14 @@ const routes: RouteRecordRaw[] = [
       { name: "library_about", path: "about", component: Library_about }
     ]
   },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: AboutView
-  }
+  // {
+  //   path: "/about",
+  //   name: "about",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (About.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: AboutView
+  // }
 ];
 const router: Router = createRouter({
   history: createWebHashHistory(),

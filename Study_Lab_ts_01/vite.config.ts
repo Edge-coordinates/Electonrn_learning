@@ -1,10 +1,11 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+import { nodePolyfills } from "vite-plugin-node-polyfills"
 
 /**按需导入组件库  查看=>https://zhuanlan.zhihu.com/p/423194571 */
-import Components from "unplugin-vue-components/vite";
-import { AntDesignVueResolver } from "unplugin-vue-components/resolvers";
+import Components from "unplugin-vue-components/vite"
+import { AntDesignVueResolver } from "unplugin-vue-components/resolvers"
 
 export default defineConfig({
   base: "./", // * 打包相对路径,否则electron加载index.html时找不到css,js文件
@@ -12,7 +13,11 @@ export default defineConfig({
     vue(),
     Components({
       resolvers: [AntDesignVueResolver()]
-    })
+    }),
+    nodePolyfills({
+      // Whether to polyfill `node:` protocol imports.
+      protocolImports: true
+    }),
   ],
   resolve: {
     alias: {

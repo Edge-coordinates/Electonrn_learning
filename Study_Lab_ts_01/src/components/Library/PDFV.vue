@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>Vue 实现 PDF 文件在线预览</h1>
+        <!-- <h1>Vue 实现 PDF 文件在线预览</h1> -->
         <iframe
             id="pdfLeft"
-            :src="'/pdfjs/web/viewer.html?file=' + fileUrl_left"
+            :src="'./pdfjs/web/viewer.html?file=' + fileUrl_left"
             frameborder="0"
             width="100%"
             style="aspect-ratio: 3 / 4;"

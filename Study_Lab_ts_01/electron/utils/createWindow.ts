@@ -16,7 +16,7 @@ function createWindow() {
     // minWidth: 1120,
     // minHeight: 645,
     width: 1120, // * 指定启动app时的默认窗口尺寸
-    height: 645, // * 指定启动app时的默认窗口尺寸
+    height: 900, // * 指定启动app时的默认窗口尺寸
     // frame: false, // * app边框(包括关闭,全屏,最小化按钮的导航栏) @false: 隐藏
     // transparent: true, // * app 背景透明
     hasShadow: true, // * app 边框阴影
@@ -26,9 +26,8 @@ function createWindow() {
       // 加载脚本
       nodeIntegration: true,
       contextIsolation: false,
-      nodeIntegrationInWorker: true,
       webSecurity: false,
-      preload: path.join(__dirname, "..", "preload")
+      // preload: path.join(__dirname, "./preload")
     }
   });
 

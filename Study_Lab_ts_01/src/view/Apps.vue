@@ -1,6 +1,6 @@
 <template>
     <div style="padding-left: 5%; padding-right: 5%">
-        <h2>文学</h2>
+        <h2>工具集</h2>
 
         <n-grid cols="2 s:3 m:4 l:5 xl:6 2xl:7" responsive="screen">
             <n-grid-item>

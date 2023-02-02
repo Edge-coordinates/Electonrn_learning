@@ -1,7 +1,8 @@
 // import './assets/js/xml2json.js'
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from "@/router/router";
+import router from "@/router/router"
+import { initData } from './utils/initData'
 
 //UI组件
 import naive from 'naive-ui'
@@ -16,6 +17,6 @@ const app = createApp(App)
 
 app.use(router)
 app.use(naive)
-
+initData()
 
 app.mount('#app')

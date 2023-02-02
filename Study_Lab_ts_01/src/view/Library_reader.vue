@@ -6,15 +6,17 @@
           <archive-icon />
         </n-icon>
       </div>
-      <n-text style="font-size: 16px"> 点击或者拖动文件到该区域来上传 </n-text>
+      <n-text style="font-size: 16px"> 点击或者拖动文件到该区域来打开 </n-text>
       <n-p depth="3" style="margin: 8px 0 0 0">
-        请不要上传敏感数据，比如你的银行卡号和密码，信用卡号有效期和安全码
+        开开开！
+        支持，txt,pdf,epub,txt可以自动识别文件编码，但是推荐utf-8
       </n-p>
     </n-upload-dragger>
   </n-upload>
   <div v-else>
     <PDFV v-if="fileend == 'pdf'" :fileUrl_left="filepath" />
-    <TXTV v-else-if="fileend == 'txt'"/>
+    <TXTV v-else-if="fileend == 'txt'" :fileUrl="filepath"/>
+    <EPUBV v-else-if="fileend == 'epub'" :fileUrl="filepath"/>
     <div v-else><h2>此文件类型暂不支持！</h2></div>
   </div>
 </template>
@@ -24,6 +26,7 @@
   import { ArchiveOutline as ArchiveIcon } from "@vicons/ionicons5";
   import PDFV from "@/components/Library/PDFV.vue";
   import TXTV from "@/components/Library/TXTV.vue"
+  import EPUBV from "@/components/Library/EPUBV.vue"
   export default defineComponent({
     data() {
       return {
@@ -59,10 +62,10 @@
 </script>
 
 <style>
-  .n-layout-header {
+  /* .n-layout-header {
     display: none;
   }
   .n-page-header-wrapper {
     display: none;
-  }
+  } */
 </style>
