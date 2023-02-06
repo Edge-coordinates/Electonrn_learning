@@ -4,14 +4,7 @@
             <HomeNavigator />
             <!-- <n-layout-header position="absolute"><HomePageHeader/></n-layout-header> -->
             <n-layout :native-scrollbar="false">
-                <n-layout-header position="absolute">
-                    <HomePageHeader />
-                </n-layout-header>
-                <n-message-provider>
-                    <HomePageHeader style="padding: 24px;"/>
-                    <router-view></router-view>
-                </n-message-provider>
-                
+                <router-view></router-view>
             </n-layout>
         </n-layout>
     </n-layout>

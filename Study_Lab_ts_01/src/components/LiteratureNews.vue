@@ -66,7 +66,7 @@ declare class X2JS {
 let item_apis = [
     {
         name: '每日古诗',
-        url: 'https://feedx.net/rss/shiwen.xml',
+        url: 'https://feedx.ics.ink/rss/shiwen.xml',
         type: 'xml',
         reskey: '',
     },

@@ -23,7 +23,7 @@ const routes: RouteRecordRaw[] = [
       { name: "home_main", path: "", component: Home_main },
       { name: "home_browser", path: "browser", component: Home_Browser },
       { name: "home_apps", path: "apps", component: Home_Apps },
-      { name: "rss_main", path: "apps", component: rss_main },
+      { name: "rss_main", path: "rss_main", component: rss_main },
       { name: "about", path:'about', component: AboutView}
     ]
   },

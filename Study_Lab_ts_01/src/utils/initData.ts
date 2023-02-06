@@ -11,7 +11,7 @@ const preData = {
   rss: [
     {
       title: "南方周末",
-      url: "https://feedx.net/rss/infzm.xml"
+      url: "https://feedx.ics.ink/rss/infzm.xml"
     }
   ]
 };

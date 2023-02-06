@@ -14,24 +14,6 @@
                     https://www.gushiwen.cn/
                 </n-card>
             </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
-            <n-grid-item>
-                <n-card title="卡片" hoverable> 别的导航 </n-card>
-            </n-grid-item>
         </n-grid>
     </div>
 </template>

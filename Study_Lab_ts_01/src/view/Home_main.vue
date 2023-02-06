@@ -6,7 +6,7 @@
                 <LiteratureNews />
             </n-tab-pane>
             <n-tab-pane name="english" tab="英语"> <EnglishNews /> </n-tab-pane>
-            <n-tab-pane name="science" tab="科学"> <ScienceNews /> </n-tab-pane>
+            <!-- <n-tab-pane name="science" tab="科学"> <ScienceNews /> </n-tab-pane> -->
             <n-tab-pane name="news" tab="新闻"> <NewNews/> </n-tab-pane>
         </n-tabs>
     </div>

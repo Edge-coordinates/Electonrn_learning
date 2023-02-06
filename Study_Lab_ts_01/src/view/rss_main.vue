@@ -4,9 +4,8 @@
     <h3>碎碎念</h3>
     <ul>
       <li>
-        同样因为Vite的原因，没法使用基于核心node模块的数据库，所以不做之前文章存储功能，只能浏览今天文章
+        同样因为Vite的原因，没法使用基于核心node模块的数据库，所以目前暂不支持文章存储功能，仅供浏览今天文章。
       </li>
-      <li>删除接口也懒得做了</li>
     </ul>
     <n-input-group>
       <n-input placeholder="名称" v-model:value="newrss_title"  type="text"  />
