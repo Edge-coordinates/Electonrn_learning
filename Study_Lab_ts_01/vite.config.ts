@@ -27,7 +27,7 @@ export default defineConfig({
   server: {
     strictPort: true, // * 固定端口(如果端口被占用则中止)
     host: true, // 0.0.0.0
-    port: 3920
+    port: 8875
   },
   build: {
     outDir: "output/dist" // 打包输出文件路径

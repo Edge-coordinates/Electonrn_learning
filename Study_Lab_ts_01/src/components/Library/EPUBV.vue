@@ -18,7 +18,7 @@
     size="huge"
     :bordered="false"
     :segmented="segmented">
-    <h2>字体大小设置</h2>
+    <h2>高度设置</h2>
     <n-space vertical>
       <n-slider v-model:value="hnum" :step="10" :max="2000" :min="200" />
       <n-input-number v-model:value="hnum" size="small" />

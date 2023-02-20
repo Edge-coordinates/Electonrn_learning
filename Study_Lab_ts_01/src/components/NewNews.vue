@@ -12,7 +12,7 @@
                         id="example-element"
                         align="left"
                         class="transition-all"
-                        src="https://www.dmoe.cc/random.php?0"
+                        src="https://api.ixiaowai.cn/gqapi/gqapi.php"
                         style="width: 30%; padding-right: 10px"
                     />
                     <div>{{ list[0].predata }}</div>

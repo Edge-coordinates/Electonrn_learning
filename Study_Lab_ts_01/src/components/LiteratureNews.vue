@@ -153,7 +153,7 @@ export default {
                             listb[i].isshow = ref(0)
                             listb[
                                 i
-                            ].pic = `https://api.vvhan.com/api/view?+${i}`
+                            ].pic = `https://api.ixiaowai.cn/gqapi/gqapi.php?${i}`
                             listb[i].title = $('#article_show h1').html()
                             listb[i].predata =
                                 $('.article_text')

@@ -36,8 +36,8 @@
       </div>
     </div>
   </div>
-  <n-drawer v-model:show="active" :default-width="250" :placement="placement" resizable>
-    <n-drawer-content title="目录" :native-scrollbar="false">
+  <n-drawer v-if="isnovelok" v-model:show="active" :default-width="250" :placement="placement" resizable>
+    <n-drawer-content  title="目录" :native-scrollbar="false">
       <n-menu :options="menuOptions" @update:value="handleUpdateValue" />
     </n-drawer-content>
   </n-drawer>
@@ -113,6 +113,12 @@
   let alldb: any;
 
   function generate_directory_listing() {
+    menuOptions = [
+      {
+        label: "前言",
+        key: "0"
+      }
+    ];
     let count = 0;
     novel_menu_l[count] = 0;
     for (line of lines) {
@@ -127,9 +133,9 @@
     // 重置渲染计数器
     novel_menu_r[count] = right;
     right = 0;
-    // console.log(menuOptions)
+    // console.log(menuOptions);
   }
-  const menuOptions: MenuOption[] = [
+  let menuOptions: MenuOption[] = [
     {
       label: "前言",
       key: "0"
@@ -157,7 +163,7 @@
         newreg: "",
         regnum: 0,
         regExp: Object,
-        char: { title: "", content: [], num: 0 }
+        char: { title: "", content: [], num: 0 },
       };
     },
     computed: {
@@ -209,8 +215,8 @@
       prepare_novel(noveltext) {
         lines = noveltext.split(/\r?\n/);
         generate_directory_listing();
+        this.menuOptions = menuOptions
         this.showchapter(0);
-        // console.log(lines)
         this.isnovelok = true;
       },
       showchapter(num: number) {
@@ -262,7 +268,7 @@
       },
       async dbinit() {
         alldb = await db.getItem("TXTV");
-        if(typeof(alldb) == 'string') alldb = JSON.parse(alldb);
+        if (typeof alldb == "string") alldb = JSON.parse(alldb);
         // console.log(alldb)
         this.regulars = alldb.regular;
         this.regnum = alldb.regnum;

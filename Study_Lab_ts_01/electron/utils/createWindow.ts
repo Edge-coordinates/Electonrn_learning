@@ -41,7 +41,7 @@ function createWindow() {
   // setContextMenu(Window);
 
   // * 主窗口加载外部链接
-  if (NODE_ENV === "development") Window.loadURL("http://localhost:3920/"); // 开发环境,加载vite启动的vue项目地址
+  if (NODE_ENV === "development") Window.loadURL("http://localhost:8875/"); // 开发环境,加载vite启动的vue项目地址
   if (NODE_ENV !== "development")
     Window.loadFile(path.join(__dirname, "..", "..", "dist/index.html")); // 生产环境加载打包后文件
 }
